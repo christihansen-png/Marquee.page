@@ -1,0 +1,23 @@
+# Marquee
+
+Marquee is a movie search app that lets you browse, search, and discover films using live data from the OMDb API.
+
+## Demo
+[Live site link, once deployed] Coming soon
+
+## Features
+- Search movies by title
+- View movie details (poster, year, rating, etc.)
+- Browse results in a clean layout
+
+## Built With
+- HTML
+- CSS
+- JavaScript
+
+## How to Run
+1. Clone the repo
+2. Open `index.html` in your browser
+
+## Author
+Christi Moore
