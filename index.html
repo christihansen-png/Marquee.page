@@ -1,12 +1,35 @@
 <!DOCTYPE html>
 <html lang="en">
-<script src="index.js"></script>
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
+  <link rel="stylesheet" href="styles.css">
+  <script src="index.js" defer></script>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Julius+Sans+One&family=Lato:ital,wght@0,400;0,700;0,900;1,400;1,700&family=Playwrite+DE+SAS&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
+  </style>
+  <title>Marquee</title>
 </head>
 <body>
+  <section class="nav__container">
+    <h1 class="main__title">MARQUEE</h1>
+    <div class="nav__tools">
+      <a href="#" class="nav__tool">Newly Released</a>
+      <a href="#" class="nav__tool">Family</a>
+      <a href="#" class="nav__tool">Action</a>
+      <a href="#" class="nav__tool">Horror</a>
+      <a href="#" class="nav__tool">Romance</a>
+      <a href="#" class="nav__tool">Comedy</a>
+    </div>
+  </section>
+  <header class="banner">
+    <img src="assets/movie-strip.webp" alt="" class="banner__img">
+    <form class="search__form" id="search__form">
+     <label for="search__input" class="search__title">Search Movies</label>
+     <input type="text" id="search__input" placeholder="Search by movie titles">
+     <button type="submit">Search</button>
+    </form>
+  </header>
   
 </body>
 </html>

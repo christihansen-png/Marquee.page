@@ -1,10 +1,12 @@
+const searchForm = document.getElementById("search__form");
 
+searchForm.addEventListener("submit", 
+  async function (event) {
+  event.preventDefault();
+  const searchTerm = document.getElementById("search__input").value;
+  console.log(searchTerm);
 
-async function movieLinks(){
-  const movie = await fetch (`http://www.omdbapi.com/?i=tt3896198&apikey=3448809e`)
-  const movieData = await movie.json();
-  console.log(movieData)
-}
-
-movieLinks();
-// const API_KEY = "3448809e"; 
+  const response = await fetch(`https://www.omdbapi.com/?s=${searchTerm}&apikey=3448809e`);
+  const data = await response.json();
+  console.log(data);
+})
