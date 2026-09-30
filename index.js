@@ -1,6 +1,6 @@
 const searchForm = document.getElementById("search__form");
 
-async function searchMovies(searchTerm, familyOnly = false) {
+async function searchMovies(searchTerm, familyOnly = false, genre = "") {
   const movieCards = document.getElementById("movie__cards");
   movieCards.innerHTML = `
   <li class="loader">
@@ -9,7 +9,6 @@ async function searchMovies(searchTerm, familyOnly = false) {
   </li>
   `;
   const startTime = Date.now();
-  console.log(searchTerm);
 
   const response = await fetch(
     `https://www.omdbapi.com/?s=${searchTerm}&apikey=3448809e`,
@@ -42,8 +41,14 @@ async function searchMovies(searchTerm, familyOnly = false) {
   }
 
   if (moviesToShow.length === 0) {
-    movieCards.innerHTML = `<p class="no__results">No family movies found. Please Try another genre! 🍿 🎥</p>`;
+    movieCards.innerHTML = `<p class="no__results">No movies found. Please Try another genre! 🍿 🎥</p>`;
     return;
+  }
+  if (genre) {
+    moviesToShow = moviesToShow.filter(
+      function (movie){
+        return movie.Genre.includes(genre);
+      });
   }
 
   const cardsHTML = moviesToShow.map(function (movie) {

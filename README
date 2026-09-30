@@ -9,6 +9,11 @@ Marquee is a movie search app that lets you browse, search, and discover films u
 - Search movies by title
 - View movie details (poster, year, rating, etc.)
 - Browse results in a clean layout
+- Genre links with family-friendly and genre filtering
+- Loading animation
+- Friendly "no results" message and backup posters
+- Responsive design for phones, tablets, and desktops
+- Metallic shimmer title and hover effects
 
 ## Built With
 - HTML

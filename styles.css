@@ -73,6 +73,7 @@ scroll-behavior: smooth;
 }
 
 .search__title {
+  font-size: clamp(28px, 5vw, 44px);
 font-weight: 900;
 background-image: repeating-linear-gradient(
    110deg,
