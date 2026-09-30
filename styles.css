@@ -12,11 +12,11 @@ body {
 }
 
 h1 {
-  font-size: 80px;
+  font-size: clamp(40px, 12vw, 80px);
 }
 
 h2 {
-  font-size: 40px;
+  font-size: clamp(24px, 6vw, 40px);
   font-weight: 600;
 }
 
@@ -73,7 +73,6 @@ scroll-behavior: smooth;
 }
 
 .search__title {
-font-size: clamp(28px, 5vw, 44px);
 font-weight: 900;
 background-image: repeating-linear-gradient(
    110deg,
@@ -178,7 +177,7 @@ margin: 4px 0;
 
 .movie__cards {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
   gap: 24px;
   list-style: none;
   padding: 0;
@@ -204,7 +203,7 @@ margin: 4px 0;
 
 .card__poster {
   width: 100%;
-  height: 348px;
+  aspect-ratio: 2/3;
   object-fit: cover;
 }
 
@@ -256,8 +255,35 @@ MEDIA
 
 */
 
-@media {
-  .movie__cards {
-    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+@media (max-width: 600px) {
+  .banner {
+    padding: 16px 16px 32px;
   }
+
+  .nav__container {
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .nav__tools {
+    text-align: center;
+  }
+  .movie__cards {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+  }
+  .card__title {
+    font-size: 16px;
+  }
+
+  .card__title,
+  .card__year,
+  .card__type,
+  .card__time,
+  .card__rating,
+  .card__link {
+    font-size: 13px;
+  }
+
 }
