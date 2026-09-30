@@ -1,3 +1,4 @@
+let currentMovies = [];
 const searchForm = document.getElementById("search__form");
 
 async function searchMovies(searchTerm, familyOnly = false, genre = "") {
@@ -56,7 +57,13 @@ async function searchMovies(searchTerm, familyOnly = false, genre = "") {
     return;
   }
 
-  const cardsHTML = moviesToShow.map(function (movie) {
+  currentMovies = moviesToShow;
+  sortAndRender();
+}
+
+function renderMovies(movies) {
+  const movieCards = document.getElementById("movie__cards");
+  const cardsHTML = movies.map(function (movie) {
     return `
     <li class="movie__card">
     <img src="${movie.Poster !== "N/A" ? movie.Poster : "assets/no-poster.svg"}" onerror="this.onerror=null; this.src='assets/no-poster.svg';" alt="Poster for ${movie.Title}" class="card__poster">
@@ -71,6 +78,34 @@ async function searchMovies(searchTerm, familyOnly = false, genre = "") {
   movieCards.innerHTML = cardsHTML.join("");
 }
 
+function sortAndRender() {
+  const sortBy = document.getElementById("sort__select").value;
+  const sorted = currentMovies.slice();
+
+  if (sortBy === "az") {
+    sorted.sort(function (a, b) {
+      return a.Title.localeCompare(b.Title);
+    });
+  } else if (sortBy === "za") {
+    sorted.sort(function (a, b) {
+      return b.Title.localeCompare(a.Title);
+    });
+  } else if (sortBy === "newest") {
+    sorted.sort(function (a, b) {
+      return parseInt(b.Year) - parseInt(a.Year);
+    });
+  } else if (sortBy === "oldest") {
+    sorted.sort(function (a, b) {
+      return parseInt(a.Year) - parseInt(b.Year);
+    });
+  }
+
+  renderMovies(sorted);
+}
+
+document
+  .getElementById("sort__select")
+  .addEventListener("change", sortAndRender);
 searchForm.addEventListener("submit", function (event) {
   event.preventDefault();
   const searchTerm = document.getElementById("search__input").value;
