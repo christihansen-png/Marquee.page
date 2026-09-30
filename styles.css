@@ -45,9 +45,21 @@ NAV & HEADER
 }
 
 .nav__tool {
+  display: inline-block;
+transition: transform 0.3s ease;
+scroll-behavior: smooth;
+}
+
+.nav__tool {
+  padding-left: 18px;
   text-decoration: none;
   color: white;
+  text-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
   cursor: pointer;
+}
+
+.nav__tool:hover {
+  transform: translateY(-6px);
 }
 
 .search__form {
@@ -75,10 +87,20 @@ font-weight: 700;
 .search__btn {
   border-color: blueviolet;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+  transition: transform 0.1s, box-shadow 0.1s;
   border-radius: 30px; 
   font-size: 18px;
   font-weight: 800;
   cursor: pointer;
+}
+
+.search__btn:hover {
+  background-color: rgb(211, 192, 249);
+}
+
+.search__btn:active {
+  transform: translateY(3px);
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
 }
 
 
@@ -111,11 +133,17 @@ margin: 4px 0;
   font-weight: bolder;
   text-decoration: none;
   margin-top: auto;
+  background-image: linear-gradient(currentColor, currentColor);
+  background-size: 0% 3px;
+  background-position: left bottom;
+  background-repeat: no-repeat;
+  transition: background-size 0.3s ease-in-out;
+  align-self: center;
   cursor: pointer;
 }
 
 .card__link:hover {
-  text-decoration: underline;
+  background-size: 100% 2px;
 }
 
 .card__title {
@@ -145,11 +173,12 @@ margin: 4px 0;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
   overflow: hidden;
   padding-bottom: 16px;
-  transition: transform 0.3ms;
+  transition: transform 0.3s;
 }
 
 .movie__card:hover {
   transform: translateY(-8px);
+  scroll-behavior: smooth;
 }
 
 .card__poster {
