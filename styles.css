@@ -28,7 +28,7 @@ NAV & HEADER
 */
 
 .banner {
-  background-image: linear-gradient(rgba(45, 25, 90, 0.5)),
+  background-image: linear-gradient(rgba(45, 25, 90, 0.5), rgba(45, 25, 90, 0.5)),
   url("assets/red.webp");
   background-size: cover;
   background-position: center;
@@ -47,7 +47,6 @@ NAV & HEADER
 .nav__tool {
   display: inline-block;
 transition: transform 0.3s ease;
-scroll-behavior: smooth;
 }
 
 .nav__tool {
@@ -89,8 +88,7 @@ background-clip: text;
 color: transparent;
 background-size: 200% auto;
 background-position: 100% center;
-transition: background-position 0.07s ease-in;
-scroll-behavior: smooth;
+transition: background-position 2.5s ease-in;
 }
 
 .search__title:hover {
@@ -139,7 +137,7 @@ MOVIE CARDS
 
 .card__title,
 .card__year,
-.card__type,
+.card__genre,
 .card__time,
 .card__rating,
 .card__link {
@@ -199,7 +197,6 @@ margin: 4px 0;
 
 .movie__card:hover {
   transform: translateY(-8px);
-  scroll-behavior: smooth;
 }
 
 .card__poster {
@@ -265,11 +262,22 @@ MEDIA
     flex-direction: column;
     align-items: center;
     gap: 12px;
+    margin-bottom: 24px;
   }
 
   .nav__tools {
     text-align: center;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 8px 14px;
   }
+
+.nav__tool {
+  padding-left: 0;
+  font-size: 15px;
+}
+
   .movie__cards {
     grid-template-columns: repeat(2, 1fr);
     gap: 12px;
@@ -280,7 +288,7 @@ MEDIA
 
   .card__title,
   .card__year,
-  .card__type,
+  .card__genre,
   .card__time,
   .card__rating,
   .card__link {

@@ -14,12 +14,17 @@ async function searchMovies(searchTerm, familyOnly = false, genre = "") {
     `https://www.omdbapi.com/?s=${searchTerm}&apikey=3448809e`,
   );
   const data = await response.json();
+  const response2 = await fetch(
+    `https://www.omdbapi.com/?s=${searchTerm}&page=2&apikey=3448809e`,
+  );
+  const data2 = await response2.json();
   if (data.Response === "False") {
     movieCards.innerHTML = `<p class="no__results">No movies found. 😔 Please try another title! 🎞️ </p>`;
     return;
   }
+  const allResults = data.Search.concat(data2.Search || []);
   const detailedMovies = await Promise.all(
-    data.Search.map(async function (movie) {
+    allResults.map(async function (movie) {
       const detailsResponse = await fetch(
         `https://www.omdbapi.com/?i=${movie.imdbID}&apikey=3448809e`,
       );
@@ -40,15 +45,15 @@ async function searchMovies(searchTerm, familyOnly = false, genre = "") {
     });
   }
 
+  if (genre) {
+    moviesToShow = moviesToShow.filter(function (movie) {
+      return movie.Genre.includes(genre);
+    });
+  }
+
   if (moviesToShow.length === 0) {
     movieCards.innerHTML = `<p class="no__results">No movies found. Please Try another genre! 🍿 🎥</p>`;
     return;
-  }
-  if (genre) {
-    moviesToShow = moviesToShow.filter(
-      function (movie){
-        return movie.Genre.includes(genre);
-      });
   }
 
   const cardsHTML = moviesToShow.map(function (movie) {
@@ -76,6 +81,10 @@ const navTools = document.querySelectorAll(".nav__tool");
 
 navTools.forEach(function (link) {
   link.addEventListener("click", function () {
-    searchMovies(link.dataset.search, link.dataset.family === "true", link.dataset.genre);
+    searchMovies(
+      link.dataset.search,
+      link.dataset.family === "true",
+      link.dataset.genre,
+    );
   });
 });
