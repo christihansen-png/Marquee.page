@@ -1,0 +1,42 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 450" width="300" height="450">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#4a1f3d"/>
+      <stop offset="1" stop-color="#2a1030"/>
+    </linearGradient>
+  </defs>
+  <rect width="300" height="450" fill="url(#bg)"/>
+  <!-- sparkles -->
+  <g fill="#ffd6e0" opacity="0.8">
+    <circle cx="50" cy="60" r="3"/><circle cx="250" cy="90" r="2.5"/>
+    <circle cx="70" cy="150" r="2"/><circle cx="235" cy="170" r="3"/>
+    <circle cx="40" cy="300" r="2"/><circle cx="265" cy="320" r="2"/>
+  </g>
+  <!-- popcorn puffs -->
+  <g fill="#fff6dc" stroke="#e8d3a0" stroke-width="2">
+    <circle cx="112" cy="138" r="24"/><circle cx="150" cy="118" r="28"/>
+    <circle cx="190" cy="138" r="24"/><circle cx="130" cy="160" r="22"/>
+    <circle cx="172" cy="160" r="22"/><circle cx="150" cy="150" r="20"/>
+  </g>
+  <!-- bucket -->
+  <path d="M92 165 L208 165 L192 330 L108 330 Z" fill="#ffffff"/>
+  <g fill="#e2476b">
+    <path d="M104 165 L122 165 L126 330 L114 330 Z"/>
+    <path d="M141 165 L159 165 L158 330 L142 330 Z"/>
+    <path d="M178 165 L196 165 L186 330 L174 330 Z"/>
+  </g>
+  <rect x="88" y="160" width="124" height="14" rx="7" fill="#f7c948"/>
+  <!-- face -->
+  <g>
+    <circle cx="130" cy="228" r="7" fill="#2a1030"/>
+    <circle cx="170" cy="228" r="7" fill="#2a1030"/>
+    <circle cx="132" cy="226" r="2.2" fill="#ffffff"/>
+    <circle cx="172" cy="226" r="2.2" fill="#ffffff"/>
+    <ellipse cx="118" cy="246" rx="8" ry="5" fill="#ff9fb4" opacity="0.8"/>
+    <ellipse cx="182" cy="246" rx="8" ry="5" fill="#ff9fb4" opacity="0.8"/>
+    <path d="M140 250 Q150 242 160 250" fill="none" stroke="#2a1030" stroke-width="3" stroke-linecap="round"/>
+  </g>
+  <!-- text -->
+  <text x="150" y="385" text-anchor="middle" font-family="Lato, Arial, sans-serif" font-size="26" font-weight="900" fill="#ffffff">No poster yet!</text>
+  <text x="150" y="415" text-anchor="middle" font-family="Lato, Arial, sans-serif" font-size="16" fill="#ffd6e0">but the movie might still be great</text>
+</svg>
