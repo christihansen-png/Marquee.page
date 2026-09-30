@@ -11,7 +11,7 @@ searchForm.addEventListener("submit",
   <span class="loader__target">📜</span>
   </li>
   `;
-  const startTime = DateTransfer.now();
+  const startTime = Date.now();
   console.log(searchTerm);
 
   const response = await fetch(`https://www.omdbapi.com/?s=${searchTerm}&apikey=3448809e`);
@@ -25,12 +25,12 @@ searchForm.addEventListener("submit",
     const detailsResponse = await fetch(`https://www.omdbapi.com/?i=${movie.imdbID}&apikey=3448809e`);
     return await detailsResponse.json();  
     })
+  );
     const elapsed = Date.now() - startTime;
 
     if (elapsed < 1200) {
       await new Promise(resolve => setTimeout(resolve, 1200 - elapsed));
     }
-);
   const cardsHTML = detailedMovies.map(function (movie) {
     return `
     <li class="movie__card">
